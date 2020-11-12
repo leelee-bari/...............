@@ -1,0 +1,48 @@
+<%- include ('partials/header') %>
+<div class="second" style="margin-top: 1%;">
+    <a href="/kitchens/new"><b>Add your kitchen</b></a>
+</div>
+
+
+<div  class="galleryContainer">
+    <div class="slideShowContainer">
+       
+        <div class="captionHolder"><p class="captionText"></p></div>
+        <div class="imageHolder">
+            <img src="dan-gold-4_jhDO54BYg-unsplash.jpg"  alt="">
+            <p class="caption1" >Fruit Salad from leesco's kitchen</p>
+        </div>
+        <div class="imageHolder">
+            <img src="pixzolo-photography-Qtd5z7g4thc-unsplash.jpg" alt="">
+            <p  class="caption1" >Fried rice from Dum kitchen</p>
+        </div>
+        <div class="imageHolder">
+            <img src="eiliv-sonas-aceron-yCKDFQLwoMA-unsplash.jpg"  alt="">
+            <p class="caption1" >Rice and sauce from James kitchen</p>
+        </div>
+        <div class="imageHolder">
+            <img src="alex-munsell-Yr4n8O_3UPc-unsplash.jpg" alt="">
+            <p class="caption1" >Roasted Meat from Ali's kitchen</p>
+        </div>
+    </div>
+    <div id="dotsContainer"></div>
+</div>
+
+
+
+    <% for(var i = 0; i< vendors.length; i++){ %>
+        <div class="food">
+            <img src="data:image/<%=vendors[i].profilePicture%>;base64" alt="wait a bit">
+           <h4> <%=vendors[i].name%> </h4>
+           <button><a href="/kitchen/<%= vendors[i]._id%>">view Kitchen</a></button>
+        </div>
+    <%}%>
+
+
+
+
+   
+
+
+
+<%- include("partials/footer") %>

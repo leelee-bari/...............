@@ -1,0 +1,48 @@
+<title>Edit <%= vendors.name %> </title>
+<link rel="stylesheet" href="/signup.css">
+    
+<div class="login-container">
+    <h1>Edit Kitchen</h1>
+    <form>
+        <div class="signup">
+            <input type="text" name="vendors[name]"  value="<%= vendors.name %>">
+        </div>
+        <div class="signup">
+            <input type="text" name="vendors[profilePicture]"value="<%= vendors.profilePicture %>">
+        </div>
+        <div class="signup">
+            <input type="password" name="vendors[password]"  value="<%= vendors.password %>">
+        </div>
+        <div class="signup">
+            <input type="text" name="vendors[imagesOfFoodtoDisplay1]"  value="<%= vendors.imagesOfFoodtoDisplay1 %>">
+        </div>
+        <div class="signup">
+            <input type="text" name="vendors[imagesOfFoodtoDisplay2]"  value="<%= vendors.imagesOfFoodtoDisplay2 %>">
+        </div>
+        <div class="signup">
+            <input type="text" name="vendors[imagesOfFoodtoDisplay3]"  value="<%= vendors.imagesOfFoodtoDisplay3 %>">
+        </div>
+        <div class="signup">
+            <input type="text" name="vendors[imagesOfFoodtoDisplay4]"  value="<%= vendors.imagesOfFoodtoDisplay4 %>">
+        </div>
+        <div class="signup">
+            <textarea name="vendors[descriptionOfTheFood]"  value="<%= vendors.descriptionOfTheFood %>" cols="30" rows="10"></textarea>
+        </div>
+        <div class="signup">
+            <input type="number" name="vendors[phoneNumber]"  value="<%= vendors.PhoneNumber %>">
+        </div>
+        <div class="signup">
+            <input type="text" name="vendors[AddressofVendor]"  value="<%= vendors.AddressofVendor %>">
+        </div>
+        <div class="signup">
+            <input type="email" name="vendors[email]"  value="<%= vendors.email %>">
+        </div>
+        
+        <input type="submit" value="submit">
+    </form>
+    
+</div>
+    
+
+
+

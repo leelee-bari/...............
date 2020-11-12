@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=vendors.name %></title>
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+    <div class="top-content">
+        <img src="/image/<%=vendors.profilePicture %>" alt="" >
+        <p style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Welcome To <%=vendors.name %></p>
+    </div>
+
+    
+<div  class="galleryContainer">
+    <div class="slideShowContainer">
+       
+        <div class="captionHolder"><p class="captionText"></p></div>
+        <div class="imageHolder">
+            <img src="/image/<%=vendors. imagesOfFoodtoDisplay%>"  alt="">
+            <p class="caption1" ><%= vendors.caption1%></p>
+        </div>
+        <div class="imageHolder">
+            <img src="/image/<%=vendors. imagesOfFoodtoDisplay%>" alt="">
+            <p  class="caption1" ><%= vendors.caption2%></p>
+        </div>
+        <div class="imageHolder">
+            <img src="/image/<%=vendors. imagesOfFoodtoDisplay%>"  alt="">
+            <p class="caption1" ><%= vendors.caption3%></p>
+        </div>
+        <div class="imageHolder">
+            <img src="/image/<%=vendors. imagesOfFoodtoDisplay%>" alt="">
+            <p class="caption1" ><%= vendors.caption4%></p>
+        </div>
+    </div>
+    <div id="dotsContainer"></div>
+</div>
+<h3 class="description">About My Food: <%= vendors.descriptionOfTheFood %></h3>
+<div class="second" style="margin-top: 1%; margin-bottom: 0; margin-left: 78%;">
+    <form action="/kitchen/<%= vendors._id %>/order" method="post" style="border-radius: 10%;">
+        <button type="submit">Place Order</button>
+    </form>
+    
+</div>
+<% if(currentUser && vendors.vendorName.id.equals(currentUser.id)){ %>
+    <div class="button-for-owner">
+        <div class="btn" >
+            <a href="/<%= vendors._id %>/editkitchen"><b>Edit Kitchen</b></a>
+        </div>
+        <form action="/delete/<%= vendors._id %>?_method=DELETE" method="post" style="border: none;margin-left: -10%;">
+            <button type="submit" style="background-color: red;">delete</button>
+        </form>
+
+    </div>
+<% } %>
+
+<% if(currentUser && vendors.vendorName.id.equals(currentUser.id)){ %>
+
+    <div style="display: flex;" class="pointer">
+        <p class="showOrders">show order</p>
+        <p style="margin-left: 2%;" class="hideOrders">Hide order</p>
+    </div>
+   
+    <div class="orders"> 
+        
+        
+
+        <% for(var i = 0; i < vendors.order.length; i++){ %>
+            <h3>User Who Placed Order: <%= vendors.order[i].username.name %></h3>
+            <div class="Date" style="display: inline-flex;">
+                <h4>Date Ordered: <%=vendors.order[i].timeOrdered.toDateString()%></h4>
+                
+            </div>
+            <div class="Time">
+                <h4>Time Ordered: <%=vendors.order[i].timeOrdered.toTimeString()%></h4>
+            </div>
+            <h4>Deliver To: <%= vendors.order[i].username.Address %></h4>
+            <h4>Call: <%= vendors.order[i].username.phoneNumber %></h4>
+
+            
+            
+        <% } %>
+    </div>
+<% } %>
+
+
+
+<div class="comment">
+    <a href="/kitchen/<%= vendors._id %>/comment/new">Add comment</a>
+</div>
+<div class="comments-display">
+    <% for(var i = 0; i < vendors.comments.length; i++){ %>
+           <h2><%= vendors.comments[i].author.username %></h2>
+           <p><%= vendors.comments[i].text %></p>
+           <% if (currentUser && vendors.comments[i].author.id.equals(currentUser.id)){ %>
+                <form action="/delete/<%=vendors._id%>/comment/<%= vendors.comments[i]._id%>?_method=DELETE" method="post">
+                    <button type="submit">delete</button>
+                </form>
+           <% } %>
+    <% } %>
+</div>
+
+
+    
+</body>
+<script src="/home.js"></script>
+</html>
+
+
+
+    
